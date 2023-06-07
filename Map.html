@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2501406ecedcb789d9d49ca759cd0aed {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
+    
+            <style>
+                #export {
+                    position: absolute;
+                    top: 5px;
+                    right: 10px;
+                    z-index: 999;
+                    background: white;
+                    color: black;
+                    padding: 6px;
+                    border-radius: 4px;
+                    font-family: 'Helvetica Neue';
+                    cursor: pointer;
+                    font-size: 12px;
+                    text-decoration: none;
+                    top: 90px;
+                }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_2501406ecedcb789d9d49ca759cd0aed" ></div>
+        
+    <a href='#' id='export'>Export</a>
+</body>
+<script>
+    
+    
+            var map_2501406ecedcb789d9d49ca759cd0aed = L.map(
+                "map_2501406ecedcb789d9d49ca759cd0aed",
+                {
+                    center: [0, 0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_48989aba5af80b5eebd1246cdd6e6f97 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_2501406ecedcb789d9d49ca759cd0aed);
+        
+    
+            var marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2 = L.markerClusterGroup(
+                {}
+            );
+            map_2501406ecedcb789d9d49ca759cd0aed.addLayer(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var marker_e56fa487be75d77d41a0723c896c1ba5 = L.marker(
+                [50.289614, 27.663212],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_8839608501b9abf7e4825a2cf90ebec0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_e56fa487be75d77d41a0723c896c1ba5.setIcon(icon_8839608501b9abf7e4825a2cf90ebec0);
+        
+    
+        var popup_59f9ff92405bbb40fc8ff48c69c9e75a = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_5f2c16b0b2ad51bafe97e479bc499ddd = $(`<div id="html_5f2c16b0b2ad51bafe97e479bc499ddd" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення правил проїзду перехресть<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-03-06 00:00:00<br><b>Час:</b> 18:31:00<br><b>День тижня:</b> неділя</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_59f9ff92405bbb40fc8ff48c69c9e75a.setContent(html_5f2c16b0b2ad51bafe97e479bc499ddd);
+            
+        
+
+        marker_e56fa487be75d77d41a0723c896c1ba5.bindPopup(popup_59f9ff92405bbb40fc8ff48c69c9e75a)
+        ;
+
+        
+    
+    
+            var marker_55a93201f9666e1dcb6daeda79148f47 = L.marker(
+                [50.289614, 27.663212],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_1b6487ea7aabaf1b9255f51c46928c87 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_55a93201f9666e1dcb6daeda79148f47.setIcon(icon_1b6487ea7aabaf1b9255f51c46928c87);
+        
+    
+        var popup_4fb5dd3004febffbee388ec8c130f585 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_1e793d4f4f0b5bb4f79e35b0b2b28b0b = $(`<div id="html_1e793d4f4f0b5bb4f79e35b0b2b28b0b" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-03-13 00:00:00<br><b>Час:</b> 18:40:00<br><b>День тижня:</b> неділя</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_4fb5dd3004febffbee388ec8c130f585.setContent(html_1e793d4f4f0b5bb4f79e35b0b2b28b0b);
+            
+        
+
+        marker_55a93201f9666e1dcb6daeda79148f47.bindPopup(popup_4fb5dd3004febffbee388ec8c130f585)
+        ;
+
+        
+    
+    
+            var marker_a468243134dc2cf730103f0a6e40504d = L.marker(
+                [50.371205, 27.984519],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_0eba65a3cc0bb6110ba530ae2ef647a5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_a468243134dc2cf730103f0a6e40504d.setIcon(icon_0eba65a3cc0bb6110ba530ae2ef647a5);
+        
+    
+        var popup_08165acd387ac15382fde9efc02322ef = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_dbbf30d2d37e40f1d475c48eec3eedac = $(`<div id="html_dbbf30d2d37e40f1d475c48eec3eedac" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-03-23 00:00:00<br><b>Час:</b> 17:30:00<br><b>День тижня:</b> середа</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_08165acd387ac15382fde9efc02322ef.setContent(html_dbbf30d2d37e40f1d475c48eec3eedac);
+            
+        
+
+        marker_a468243134dc2cf730103f0a6e40504d.bindPopup(popup_08165acd387ac15382fde9efc02322ef)
+        ;
+
+        
+    
+    
+            var marker_d47cf17ab0294a6cda1d13d93a745770 = L.marker(
+                [50.422182, 27.450113],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_116385631cc3eeb34351d8b53d680bbc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_d47cf17ab0294a6cda1d13d93a745770.setIcon(icon_116385631cc3eeb34351d8b53d680bbc);
+        
+    
+        var popup_e7cb7f39a5bfa8aa1e66ee8b52a53244 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_9c9a9ae9ea827e914fa7dd92457abd77 = $(`<div id="html_9c9a9ae9ea827e914fa7dd92457abd77" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-04-18 00:00:00<br><b>Час:</b> 13:05:00<br><b>День тижня:</b> понеділок</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_e7cb7f39a5bfa8aa1e66ee8b52a53244.setContent(html_9c9a9ae9ea827e914fa7dd92457abd77);
+            
+        
+
+        marker_d47cf17ab0294a6cda1d13d93a745770.bindPopup(popup_e7cb7f39a5bfa8aa1e66ee8b52a53244)
+        ;
+
+        
+    
+    
+            var marker_0ee7814a23643f799f7a4693dc708b10 = L.marker(
+                [50.293615, 27.666576],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_18008d07b7f3dc665ed3ee20969223ae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_0ee7814a23643f799f7a4693dc708b10.setIcon(icon_18008d07b7f3dc665ed3ee20969223ae);
+        
+    
+        var popup_55b7947439eec11c9fccc77072ae2735 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_b4220fe16bf72f29da6dbc6b5823bca7 = $(`<div id="html_b4220fe16bf72f29da6dbc6b5823bca7" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-04-22 00:00:00<br><b>Час:</b> 11:02:00<br><b>День тижня:</b> п'ятниця</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_55b7947439eec11c9fccc77072ae2735.setContent(html_b4220fe16bf72f29da6dbc6b5823bca7);
+            
+        
+
+        marker_0ee7814a23643f799f7a4693dc708b10.bindPopup(popup_55b7947439eec11c9fccc77072ae2735)
+        ;
+
+        
+    
+    
+            var marker_050dd4abcbb18618bd7e27257de806ef = L.marker(
+                [51.110046, 28.672625],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_8a1fe76eb66887d0f27fe6e2e3fe127f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_050dd4abcbb18618bd7e27257de806ef.setIcon(icon_8a1fe76eb66887d0f27fe6e2e3fe127f);
+        
+    
+        var popup_7ce18a77e7f58e03a42fb32cc1e693b3 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_f28d25731a9779a8bf696127af002878 = $(`<div id="html_f28d25731a9779a8bf696127af002878" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2022-04-24 00:00:00<br><b>Час:</b> 13:15:00<br><b>День тижня:</b> неділя</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_7ce18a77e7f58e03a42fb32cc1e693b3.setContent(html_f28d25731a9779a8bf696127af002878);
+            
+        
+
+        marker_050dd4abcbb18618bd7e27257de806ef.bindPopup(popup_7ce18a77e7f58e03a42fb32cc1e693b3)
+        ;
+
+        
+    
+    
+            var marker_80113963b320aec5798f061f73ea54b1 = L.marker(
+                [50.310087, 27.687723],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_1b5eb3a56ee9a26eb4a759711db7a216 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_80113963b320aec5798f061f73ea54b1.setIcon(icon_1b5eb3a56ee9a26eb4a759711db7a216);
+        
+    
+        var popup_f8cd488e38ce0417ab29a3fa0a365321 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_0e627846eca3544804af59b609c242bc = $(`<div id="html_0e627846eca3544804af59b609c242bc" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> технічна несправність <br><b>Вид ДТП:</b> перекидання<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2022-04-27 00:00:00<br><b>Час:</b> 17:10:00<br><b>День тижня:</b> середа</div><br><img src='https://auto.24tv.ua/resources/photos/news/202107/31958__c07046cc-2e7c-4e76-ab11-983d67a6e5a5.jpg?1626904779000' alt='Photo' width='200'></div>`)[0];
+                popup_f8cd488e38ce0417ab29a3fa0a365321.setContent(html_0e627846eca3544804af59b609c242bc);
+            
+        
+
+        marker_80113963b320aec5798f061f73ea54b1.bindPopup(popup_f8cd488e38ce0417ab29a3fa0a365321)
+        ;
+
+        
+    
+    
+            var marker_a8de4c03e6d7271a51bdec32cd45fd5c = L.marker(
+                [50.416343, 27.63534],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_edbf5e2c2389289338bc9f4cf97635dd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_a8de4c03e6d7271a51bdec32cd45fd5c.setIcon(icon_edbf5e2c2389289338bc9f4cf97635dd);
+        
+    
+        var popup_273269a5518e0384806cce87577cf34f = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_ead66c01d036d17bb86cf1b698947a3c = $(`<div id="html_ead66c01d036d17bb86cf1b698947a3c" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення безпечного інтервалу<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-04-28 00:00:00<br><b>Час:</b> 13:10:00<br><b>День тижня:</b> четвер</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_273269a5518e0384806cce87577cf34f.setContent(html_ead66c01d036d17bb86cf1b698947a3c);
+            
+        
+
+        marker_a8de4c03e6d7271a51bdec32cd45fd5c.bindPopup(popup_273269a5518e0384806cce87577cf34f)
+        ;
+
+        
+    
+    
+            var marker_564cc607c5ec74d7d879b06609830ec2 = L.marker(
+                [50.200431, 27.631953],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_badf5d757294c5333ba115cbd9bfc764 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_564cc607c5ec74d7d879b06609830ec2.setIcon(icon_badf5d757294c5333ba115cbd9bfc764);
+        
+    
+        var popup_d7102a749c6650184aa6dfd00eb7d453 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_d1303d91e26562764ad3f16ec94d9cad = $(`<div id="html_d1303d91e26562764ad3f16ec94d9cad" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення безпечного інтервалу<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-05-02 00:00:00<br><b>Час:</b> 13:35:00<br><b>День тижня:</b> понеділок</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_d7102a749c6650184aa6dfd00eb7d453.setContent(html_d1303d91e26562764ad3f16ec94d9cad);
+            
+        
+
+        marker_564cc607c5ec74d7d879b06609830ec2.bindPopup(popup_d7102a749c6650184aa6dfd00eb7d453)
+        ;
+
+        
+    
+    
+            var marker_1f8c6e9226ec27d87b173486c1760131 = L.marker(
+                [50.422675, 27.602603],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_9cc7a6ba32b0933f3fb99c7f4cb11977 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_1f8c6e9226ec27d87b173486c1760131.setIcon(icon_9cc7a6ba32b0933f3fb99c7f4cb11977);
+        
+    
+        var popup_10d92a12719bed967b1ba4a5d9a7d469 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_dad9c1297cb6554c8cc5dfc2f932b52a = $(`<div id="html_dad9c1297cb6554c8cc5dfc2f932b52a" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення безпечного інтервалу<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-05-07 00:00:00<br><b>Час:</b> 13:15:00<br><b>День тижня:</b> субота</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_10d92a12719bed967b1ba4a5d9a7d469.setContent(html_dad9c1297cb6554c8cc5dfc2f932b52a);
+            
+        
+
+        marker_1f8c6e9226ec27d87b173486c1760131.bindPopup(popup_10d92a12719bed967b1ba4a5d9a7d469)
+        ;
+
+        
+    
+    
+            var marker_321479c830a467a372477f7de637a973 = L.marker(
+                [50.406923, 27.465147],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_c6fe80adaaadf3cbf4f5fa493f6cf127 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_321479c830a467a372477f7de637a973.setIcon(icon_c6fe80adaaadf3cbf4f5fa493f6cf127);
+        
+    
+        var popup_891616df0dfe2884f4a786bef1021e5c = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_b55ac282e767e7bed426264040862f3d = $(`<div id="html_b55ac282e767e7bed426264040862f3d" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2022-05-14 00:00:00<br><b>Час:</b> 19:20:00<br><b>День тижня:</b> субота</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_891616df0dfe2884f4a786bef1021e5c.setContent(html_b55ac282e767e7bed426264040862f3d);
+            
+        
+
+        marker_321479c830a467a372477f7de637a973.bindPopup(popup_891616df0dfe2884f4a786bef1021e5c)
+        ;
+
+        
+    
+    
+            var marker_3a4dfd6f3352ac42b7b4702442a1a05f = L.marker(
+                [50.302304, 27.648668],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_2f29a0f986d02881a8d76055d13fc640 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_3a4dfd6f3352ac42b7b4702442a1a05f.setIcon(icon_2f29a0f986d02881a8d76055d13fc640);
+        
+    
+        var popup_43150a1869d164cd95a379b525adde55 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_5858d176586a03eda096c35c2e985a4e = $(`<div id="html_5858d176586a03eda096c35c2e985a4e" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення безпечного інтервалу<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-06-08 00:00:00<br><b>Час:</b> 16:58:00<br><b>День тижня:</b> середа</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_43150a1869d164cd95a379b525adde55.setContent(html_5858d176586a03eda096c35c2e985a4e);
+            
+        
+
+        marker_3a4dfd6f3352ac42b7b4702442a1a05f.bindPopup(popup_43150a1869d164cd95a379b525adde55)
+        ;
+
+        
+    
+    
+            var marker_dee29986501814c1302df64457f67395 = L.marker(
+                [50.289614, 27.663212],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_bcd68d3b26f1e64b133d1ea9e333fd62 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_dee29986501814c1302df64457f67395.setIcon(icon_bcd68d3b26f1e64b133d1ea9e333fd62);
+        
+    
+        var popup_7c14b1d2767acc7e948c033ceceb865b = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_6ac0f6e148bc6367e5e5ab17b59684d8 = $(`<div id="html_6ac0f6e148bc6367e5e5ab17b59684d8" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення правил проїзду перехресть<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 2<br><b>Дата:</b> 2022-06-18 00:00:00<br><b>Час:</b> 01:27:00<br><b>День тижня:</b> субота</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_7c14b1d2767acc7e948c033ceceb865b.setContent(html_6ac0f6e148bc6367e5e5ab17b59684d8);
+            
+        
+
+        marker_dee29986501814c1302df64457f67395.bindPopup(popup_7c14b1d2767acc7e948c033ceceb865b)
+        ;
+
+        
+    
+    
+            var marker_4eb551752b052a55d0b80a9438be90fb = L.marker(
+                [50.294243, 27.68727],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_495e9b60390cc6ae99acff9d6f69040f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_4eb551752b052a55d0b80a9438be90fb.setIcon(icon_495e9b60390cc6ae99acff9d6f69040f);
+        
+    
+        var popup_f2767d8928653bbc4370b65462554003 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_e6f9853ddfecd6bd9235fea497f31d1c = $(`<div id="html_e6f9853ddfecd6bd9235fea497f31d1c" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення зміни напрямку руху<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-06-16 00:00:00<br><b>Час:</b> 20:49:00<br><b>День тижня:</b> четвер</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_f2767d8928653bbc4370b65462554003.setContent(html_e6f9853ddfecd6bd9235fea497f31d1c);
+            
+        
+
+        marker_4eb551752b052a55d0b80a9438be90fb.bindPopup(popup_f2767d8928653bbc4370b65462554003)
+        ;
+
+        
+    
+    
+            var marker_36f3f22298bd36893ddd600049b43e1c = L.marker(
+                [50.280095, 27.508177],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_1271b81e44d5931bf7585e949bfad284 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_36f3f22298bd36893ddd600049b43e1c.setIcon(icon_1271b81e44d5931bf7585e949bfad284);
+        
+    
+        var popup_83eaba6eb32f620a2be693461226ec3e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_582bde656ddd398ea51fce3456c2cb3d = $(`<div id="html_582bde656ddd398ea51fce3456c2cb3d" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-07-04 00:00:00<br><b>Час:</b> 01:00:00<br><b>День тижня:</b> понеділок</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_83eaba6eb32f620a2be693461226ec3e.setContent(html_582bde656ddd398ea51fce3456c2cb3d);
+            
+        
+
+        marker_36f3f22298bd36893ddd600049b43e1c.bindPopup(popup_83eaba6eb32f620a2be693461226ec3e)
+        ;
+
+        
+    
+    
+            var marker_b8c33d835af7f5c509dced681606abda = L.marker(
+                [50.260647, 27.673308],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_53367fcd8500227278f4b78e49b6630d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_b8c33d835af7f5c509dced681606abda.setIcon(icon_53367fcd8500227278f4b78e49b6630d);
+        
+    
+        var popup_0265942b917c5757855551c1e534a3ab = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_e1002dfe5e865726e637fb4dcc83bc39 = $(`<div id="html_e1002dfe5e865726e637fb4dcc83bc39" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення зміни напрямку руху<br><b>Вид ДТП:</b> наїзд на велосипедиста<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2022-07-18 00:00:00<br><b>Час:</b> 09:20:00<br><b>День тижня:</b> понеділок</div><br><img src='https://media.dyvys.info/2019/05/355955.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_0265942b917c5757855551c1e534a3ab.setContent(html_e1002dfe5e865726e637fb4dcc83bc39);
+            
+        
+
+        marker_b8c33d835af7f5c509dced681606abda.bindPopup(popup_0265942b917c5757855551c1e534a3ab)
+        ;
+
+        
+    
+    
+            var marker_986f9b56aa6918677df8d2cc81bf3b35 = L.marker(
+                [50.413449, 27.745605],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_926fb04ffc53a137bfc999528850c25b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_986f9b56aa6918677df8d2cc81bf3b35.setIcon(icon_926fb04ffc53a137bfc999528850c25b);
+        
+    
+        var popup_97c1bf02bfb54cb6a49b0f8625827e37 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_ed0f4892d867f88669bd7a86ab621efd = $(`<div id="html_ed0f4892d867f88669bd7a86ab621efd" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення безпечного інтервалу<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-07-19 00:00:00<br><b>Час:</b> 06:11:00<br><b>День тижня:</b> вівторок </div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_97c1bf02bfb54cb6a49b0f8625827e37.setContent(html_ed0f4892d867f88669bd7a86ab621efd);
+            
+        
+
+        marker_986f9b56aa6918677df8d2cc81bf3b35.bindPopup(popup_97c1bf02bfb54cb6a49b0f8625827e37)
+        ;
+
+        
+    
+    
+            var marker_3e4e1992a5ae31253da77b4aaec96135 = L.marker(
+                [50.289614, 27.663212],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_30ecc17a2db174481c8a068cc24d400c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3e4e1992a5ae31253da77b4aaec96135.setIcon(icon_30ecc17a2db174481c8a068cc24d400c);
+        
+    
+        var popup_1070235fc64341b0c8945f2d6ec3156d = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_e810cb947afdc7f1ea1c6d8cd3e71f1d = $(`<div id="html_e810cb947afdc7f1ea1c6d8cd3e71f1d" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення правил проїзду перехресть<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2022-07-22 00:00:00<br><b>Час:</b> 14:15:00<br><b>День тижня:</b> п'ятниця</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_1070235fc64341b0c8945f2d6ec3156d.setContent(html_e810cb947afdc7f1ea1c6d8cd3e71f1d);
+            
+        
+
+        marker_3e4e1992a5ae31253da77b4aaec96135.bindPopup(popup_1070235fc64341b0c8945f2d6ec3156d)
+        ;
+
+        
+    
+    
+            var marker_c62d35e93b18261b507d5cbd00a932e7 = L.marker(
+                [50.289614, 27.663212],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_99d33407df33106e89e5ff2e06147129 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c62d35e93b18261b507d5cbd00a932e7.setIcon(icon_99d33407df33106e89e5ff2e06147129);
+        
+    
+        var popup_917dc16517738bda29af778241aac110 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_a3eb8b1db0d1bd7d0004f9d772ac7695 = $(`<div id="html_a3eb8b1db0d1bd7d0004f9d772ac7695" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення правил проїзду перехресть<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-07-25 00:00:00<br><b>Час:</b> 10:10:00<br><b>День тижня:</b> понеділок</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_917dc16517738bda29af778241aac110.setContent(html_a3eb8b1db0d1bd7d0004f9d772ac7695);
+            
+        
+
+        marker_c62d35e93b18261b507d5cbd00a932e7.bindPopup(popup_917dc16517738bda29af778241aac110)
+        ;
+
+        
+    
+    
+            var marker_850051dc32a4818e4b47abf0c9866d21 = L.marker(
+                [50.248986, 27.862488],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_b4b9dc781b60d103ce0a99aa196486ea = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_850051dc32a4818e4b47abf0c9866d21.setIcon(icon_b4b9dc781b60d103ce0a99aa196486ea);
+        
+    
+        var popup_87a8e80a5397e4eb5d13bd69ed50fc1c = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_94dc729d1655add32616692cd1be2a20 = $(`<div id="html_94dc729d1655add32616692cd1be2a20" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-08-05 00:00:00<br><b>Час:</b> 17:30:00<br><b>День тижня:</b> п'ятниця</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_87a8e80a5397e4eb5d13bd69ed50fc1c.setContent(html_94dc729d1655add32616692cd1be2a20);
+            
+        
+
+        marker_850051dc32a4818e4b47abf0c9866d21.bindPopup(popup_87a8e80a5397e4eb5d13bd69ed50fc1c)
+        ;
+
+        
+    
+    
+            var marker_6b3c029d6277ff4418e36afe476673ea = L.marker(
+                [50.248986, 27.862488],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_ef7f9f17074fd0829ce23624b854a812 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6b3c029d6277ff4418e36afe476673ea.setIcon(icon_ef7f9f17074fd0829ce23624b854a812);
+        
+    
+        var popup_23a35caee5c504abb50f65f61cde40a2 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_7fa05085c1fa69b9fac554fa015efcd1 = $(`<div id="html_7fa05085c1fa69b9fac554fa015efcd1" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-08-15 00:00:00<br><b>Час:</b> 20:40:00<br><b>День тижня:</b> понеділок</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_23a35caee5c504abb50f65f61cde40a2.setContent(html_7fa05085c1fa69b9fac554fa015efcd1);
+            
+        
+
+        marker_6b3c029d6277ff4418e36afe476673ea.bindPopup(popup_23a35caee5c504abb50f65f61cde40a2)
+        ;
+
+        
+    
+    
+            var marker_b277acbd203d717558e680affdcd8bfd = L.marker(
+                [50.274234, 27.652258],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_50c43cb2d1248e9d0bbe79fdb7e46a29 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_b277acbd203d717558e680affdcd8bfd.setIcon(icon_50c43cb2d1248e9d0bbe79fdb7e46a29);
+        
+    
+        var popup_79c63528b7f8e39ea124a91418f40bba = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_397d8561af9ba6073b6c9ea802dc54ab = $(`<div id="html_397d8561af9ba6073b6c9ea802dc54ab" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-08-18 00:00:00<br><b>Час:</b> 15:17:00<br><b>День тижня:</b> четвер</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_79c63528b7f8e39ea124a91418f40bba.setContent(html_397d8561af9ba6073b6c9ea802dc54ab);
+            
+        
+
+        marker_b277acbd203d717558e680affdcd8bfd.bindPopup(popup_79c63528b7f8e39ea124a91418f40bba)
+        ;
+
+        
+    
+    
+            var marker_89f62a2030b46fe5f5069f8d6a7d4b07 = L.marker(
+                [50.283101, 27.65861],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_d7bc4fde9d705fee1f1035f1e310393d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_89f62a2030b46fe5f5069f8d6a7d4b07.setIcon(icon_d7bc4fde9d705fee1f1035f1e310393d);
+        
+    
+        var popup_44709f3f39e6617d67a56a807a35ba45 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_a2ea84ef07eeb66a3c0e7087ed49c3e6 = $(`<div id="html_a2ea84ef07eeb66a3c0e7087ed49c3e6" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-08-18 00:00:00<br><b>Час:</b> 16:09:00<br><b>День тижня:</b> п'ятниця</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_44709f3f39e6617d67a56a807a35ba45.setContent(html_a2ea84ef07eeb66a3c0e7087ed49c3e6);
+            
+        
+
+        marker_89f62a2030b46fe5f5069f8d6a7d4b07.bindPopup(popup_44709f3f39e6617d67a56a807a35ba45)
+        ;
+
+        
+    
+    
+            var marker_ccf71913461c722e90173b7870e53dc5 = L.marker(
+                [50.293615, 27.666576],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_c317a3e8ce8e658b5f3f13538b2bbd0d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ccf71913461c722e90173b7870e53dc5.setIcon(icon_c317a3e8ce8e658b5f3f13538b2bbd0d);
+        
+    
+        var popup_dc435c3a3467c7470b7a48e500ebfef7 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_2d5446fc19633ecd36175ff3ba06d613 = $(`<div id="html_2d5446fc19633ecd36175ff3ba06d613" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення правил проїзду перехресть<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-09-09 00:00:00<br><b>Час:</b> 13:40:00<br><b>День тижня:</b> п'ятниця</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_dc435c3a3467c7470b7a48e500ebfef7.setContent(html_2d5446fc19633ecd36175ff3ba06d613);
+            
+        
+
+        marker_ccf71913461c722e90173b7870e53dc5.bindPopup(popup_dc435c3a3467c7470b7a48e500ebfef7)
+        ;
+
+        
+    
+    
+            var marker_a793885106c9db8ec7342849f42f14cc = L.marker(
+                [50.293615, 27.666576],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_75ceaf833a215e48e518b198172e829c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_a793885106c9db8ec7342849f42f14cc.setIcon(icon_75ceaf833a215e48e518b198172e829c);
+        
+    
+        var popup_dedb9e43c4e2cb50350aca359cd1cccf = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_120f4c794272ce2af04a0765df7251d5 = $(`<div id="html_120f4c794272ce2af04a0765df7251d5" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-10-09 00:00:00<br><b>Час:</b> 14:52:00<br><b>День тижня:</b> неділя</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_dedb9e43c4e2cb50350aca359cd1cccf.setContent(html_120f4c794272ce2af04a0765df7251d5);
+            
+        
+
+        marker_a793885106c9db8ec7342849f42f14cc.bindPopup(popup_dedb9e43c4e2cb50350aca359cd1cccf)
+        ;
+
+        
+    
+    
+            var marker_87f33c28512f44dab5663356157d02c0 = L.marker(
+                [50.369455, 27.993222],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_a72a80462bc12c932e5da715b9efaace = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_87f33c28512f44dab5663356157d02c0.setIcon(icon_a72a80462bc12c932e5da715b9efaace);
+        
+    
+        var popup_d4dc6cf3a60aea7daa1cdfb9e7dc04dc = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_ce405e2f2be3ebc856a61d5134fc012f = $(`<div id="html_ce405e2f2be3ebc856a61d5134fc012f" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення безпечного інтервалу<br><b>Вид ДТП:</b> наїзд на гужовий віз<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2022-10-14 00:00:00<br><b>Час:</b> 19:01:00<br><b>День тижня:</b> п'ятниця</div><br><img src='https://i.tyzhden.ua/content/photoalbum/2015/11_2015/01/%D0%BB%D1%8C%D0%B2%D1%96%D0%B21.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_d4dc6cf3a60aea7daa1cdfb9e7dc04dc.setContent(html_ce405e2f2be3ebc856a61d5134fc012f);
+            
+        
+
+        marker_87f33c28512f44dab5663356157d02c0.bindPopup(popup_d4dc6cf3a60aea7daa1cdfb9e7dc04dc)
+        ;
+
+        
+    
+    
+            var marker_fd347e982a0fe9e98c71717a25ecedb4 = L.marker(
+                [50.293615, 27.666576],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_2be9d8072f30923a3fe4085d7f97c625 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_fd347e982a0fe9e98c71717a25ecedb4.setIcon(icon_2be9d8072f30923a3fe4085d7f97c625);
+        
+    
+        var popup_6c689a0705b8f9190ce3c2100fd1ac36 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_320cf85a926f5fbd1c92db7578f9965b = $(`<div id="html_320cf85a926f5fbd1c92db7578f9965b" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення правил проїзду перехресть<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2022-10-29 00:00:00<br><b>Час:</b> 20:40:00<br><b>День тижня:</b> субота</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_6c689a0705b8f9190ce3c2100fd1ac36.setContent(html_320cf85a926f5fbd1c92db7578f9965b);
+            
+        
+
+        marker_fd347e982a0fe9e98c71717a25ecedb4.bindPopup(popup_6c689a0705b8f9190ce3c2100fd1ac36)
+        ;
+
+        
+    
+    
+            var marker_801dd86e40e8448c32aa99cb9a4091bb = L.marker(
+                [50.294964, 27.678553],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_cf1d5b89ef31ccd397accb512a93461d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_801dd86e40e8448c32aa99cb9a4091bb.setIcon(icon_cf1d5b89ef31ccd397accb512a93461d);
+        
+    
+        var popup_c91536c456016ab71403132aa98bae42 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_3f788a2f7b18601051a3634ae718e264 = $(`<div id="html_3f788a2f7b18601051a3634ae718e264" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення правил проїзду перехресть<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-10-30 00:00:00<br><b>Час:</b> 13:40:00<br><b>День тижня:</b> неділя</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_c91536c456016ab71403132aa98bae42.setContent(html_3f788a2f7b18601051a3634ae718e264);
+            
+        
+
+        marker_801dd86e40e8448c32aa99cb9a4091bb.bindPopup(popup_c91536c456016ab71403132aa98bae42)
+        ;
+
+        
+    
+    
+            var marker_fea0f00e75561702d3607d794db35107 = L.marker(
+                [50.283101, 27.65861],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_d1769541ebf9854420c0789e6fc58c29 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_fea0f00e75561702d3607d794db35107.setIcon(icon_d1769541ebf9854420c0789e6fc58c29);
+        
+    
+        var popup_926c5a0cc38663bd5be13ec1bedf0ce2 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_0252fed0ea43aa490476706b9260adc9 = $(`<div id="html_0252fed0ea43aa490476706b9260adc9" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення безпечного інтервалу<br><b>Вид ДТП:</b> наїзд на велосипедиста<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2022-10-30 00:00:00<br><b>Час:</b> 17:22:00<br><b>День тижня:</b> неділя</div><br><img src='https://media.dyvys.info/2019/05/355955.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_926c5a0cc38663bd5be13ec1bedf0ce2.setContent(html_0252fed0ea43aa490476706b9260adc9);
+            
+        
+
+        marker_fea0f00e75561702d3607d794db35107.bindPopup(popup_926c5a0cc38663bd5be13ec1bedf0ce2)
+        ;
+
+        
+    
+    
+            var marker_d759cd57a33c972eeefee4b5b9a263d6 = L.marker(
+                [50.248986, 27.862488],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_7b6cb7fcf724bd176e870372c85c57d5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_d759cd57a33c972eeefee4b5b9a263d6.setIcon(icon_7b6cb7fcf724bd176e870372c85c57d5);
+        
+    
+        var popup_c1244ab8e0b1409c58380f04101b44de = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_269a4e48498624eacabb58dd420d4f45 = $(`<div id="html_269a4e48498624eacabb58dd420d4f45" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2022-11-19 00:00:00<br><b>Час:</b> 13:14:00<br><b>День тижня:</b> субота</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_c1244ab8e0b1409c58380f04101b44de.setContent(html_269a4e48498624eacabb58dd420d4f45);
+            
+        
+
+        marker_d759cd57a33c972eeefee4b5b9a263d6.bindPopup(popup_c1244ab8e0b1409c58380f04101b44de)
+        ;
+
+        
+    
+    
+            var marker_07d4c7d769b97733693cdd74ec320ae7 = L.marker(
+                [50.307799, 27.650252],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_ff181c42ea0d88822452654c2d64e133 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_07d4c7d769b97733693cdd74ec320ae7.setIcon(icon_ff181c42ea0d88822452654c2d64e133);
+        
+    
+        var popup_de4186b0b95a79f0391ae6e4fca19de5 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_5a001c15a27490b0a14c99b4732e0c79 = $(`<div id="html_5a001c15a27490b0a14c99b4732e0c79" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення безпечного інтервалу<br><b>Вид ДТП:</b> наїзд на ТЗ, що стоїть<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-11-23 00:00:00<br><b>Час:</b> 12:10:00<br><b>День тижня:</b> середа</div><br><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Head_On_Collision.jpg/800px-Head_On_Collision.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_de4186b0b95a79f0391ae6e4fca19de5.setContent(html_5a001c15a27490b0a14c99b4732e0c79);
+            
+        
+
+        marker_07d4c7d769b97733693cdd74ec320ae7.bindPopup(popup_de4186b0b95a79f0391ae6e4fca19de5)
+        ;
+
+        
+    
+    
+            var marker_161e422c85405b0d93d0bdcfaa43406b = L.marker(
+                [50.310087, 27.687723],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_fa2e6694b7719faed1359c4e38eabe80 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_161e422c85405b0d93d0bdcfaa43406b.setIcon(icon_fa2e6694b7719faed1359c4e38eabe80);
+        
+    
+        var popup_e2abe13c64de3355589b958770991757 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_9d683fcbc98b5bcd5d2f9801785438dc = $(`<div id="html_9d683fcbc98b5bcd5d2f9801785438dc" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-11-25 00:00:00<br><b>Час:</b> 11:15:00<br><b>День тижня:</b> п'ятниця</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_e2abe13c64de3355589b958770991757.setContent(html_9d683fcbc98b5bcd5d2f9801785438dc);
+            
+        
+
+        marker_161e422c85405b0d93d0bdcfaa43406b.bindPopup(popup_e2abe13c64de3355589b958770991757)
+        ;
+
+        
+    
+    
+            var marker_a590d2a4dad5cc6330196b00e905e31c = L.marker(
+                [50.369455, 27.993222],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_5df5e3310a3ca942d32e813c95c77c25 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_a590d2a4dad5cc6330196b00e905e31c.setIcon(icon_5df5e3310a3ca942d32e813c95c77c25);
+        
+    
+        var popup_edf2fe232298ce1b15871d37a909cb4e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_fc70eb4db03da1d63395a35953721cae = $(`<div id="html_fc70eb4db03da1d63395a35953721cae" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-01-05 00:00:00<br><b>Час:</b> 13:15:00<br><b>День тижня:</b> середа</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_edf2fe232298ce1b15871d37a909cb4e.setContent(html_fc70eb4db03da1d63395a35953721cae);
+            
+        
+
+        marker_a590d2a4dad5cc6330196b00e905e31c.bindPopup(popup_edf2fe232298ce1b15871d37a909cb4e)
+        ;
+
+        
+    
+    
+            var marker_3f9989e50a80da3bb0e4eb56287b1fa4 = L.marker(
+                [50.293615, 27.666576],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_ef28c3b0b1be2221f7826752806ecc32 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3f9989e50a80da3bb0e4eb56287b1fa4.setIcon(icon_ef28c3b0b1be2221f7826752806ecc32);
+        
+    
+        var popup_e775bd8f695873d4e2c3f46b076b924e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_61d8e52fb31f921aaebeec0e058653a5 = $(`<div id="html_61d8e52fb31f921aaebeec0e058653a5" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на ТЗ, що стоїть<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2022-01-14 00:00:00<br><b>Час:</b> 12:47:00<br><b>День тижня:</b> п'ятниця</div><br><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Head_On_Collision.jpg/800px-Head_On_Collision.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_e775bd8f695873d4e2c3f46b076b924e.setContent(html_61d8e52fb31f921aaebeec0e058653a5);
+            
+        
+
+        marker_3f9989e50a80da3bb0e4eb56287b1fa4.bindPopup(popup_e775bd8f695873d4e2c3f46b076b924e)
+        ;
+
+        
+    
+    
+            var marker_21c666aec245805952b4f0509859851e = L.marker(
+                [50.273302, 27.699787],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_464de9f320ca59f1f3b99baf9e81c34d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_21c666aec245805952b4f0509859851e.setIcon(icon_464de9f320ca59f1f3b99baf9e81c34d);
+        
+    
+        var popup_c29f1d78e8d2a7eb623e3f540f6aa739 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_93351032d6b6581b5f89915c69ea15a4 = $(`<div id="html_93351032d6b6581b5f89915c69ea15a4" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-01-19 00:00:00<br><b>Час:</b> 15:35:00<br><b>День тижня:</b> середа</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_c29f1d78e8d2a7eb623e3f540f6aa739.setContent(html_93351032d6b6581b5f89915c69ea15a4);
+            
+        
+
+        marker_21c666aec245805952b4f0509859851e.bindPopup(popup_c29f1d78e8d2a7eb623e3f540f6aa739)
+        ;
+
+        
+    
+    
+            var marker_1e71d7b8d13a691873fc79b39ae32e1f = L.marker(
+                [50.294243, 27.68727],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_e31f8da39af1e5795246767fbc91f60a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1e71d7b8d13a691873fc79b39ae32e1f.setIcon(icon_e31f8da39af1e5795246767fbc91f60a);
+        
+    
+        var popup_e8e863e1e2a234d62dcd745a7e886eb6 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_31a0b25028e8a6d07bf74c5cc7108587 = $(`<div id="html_31a0b25028e8a6d07bf74c5cc7108587" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення правил проїзду перехресть<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-01-24 00:00:00<br><b>Час:</b> 21:46:00<br><b>День тижня:</b> понеділок</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_e8e863e1e2a234d62dcd745a7e886eb6.setContent(html_31a0b25028e8a6d07bf74c5cc7108587);
+            
+        
+
+        marker_1e71d7b8d13a691873fc79b39ae32e1f.bindPopup(popup_e8e863e1e2a234d62dcd745a7e886eb6)
+        ;
+
+        
+    
+    
+            var marker_cbdc4ee2f340303e6e3b864be7a4335e = L.marker(
+                [50.341195, 27.709746],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_e24a7cf2053d95e756a0bccf4318b8db = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_cbdc4ee2f340303e6e3b864be7a4335e.setIcon(icon_e24a7cf2053d95e756a0bccf4318b8db);
+        
+    
+        var popup_adaa046d5f1ee933c97cdda55fc5ea91 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_71d6042946a79b3a665bae099fbdd506 = $(`<div id="html_71d6042946a79b3a665bae099fbdd506" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на пішохода<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-02-02 00:00:00<br><b>Час:</b> 12:47:00<br><b>День тижня:</b> середа</div><br><img src='https://sykhiv.media/wp-content/uploads/2020/07/135_1.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_adaa046d5f1ee933c97cdda55fc5ea91.setContent(html_71d6042946a79b3a665bae099fbdd506);
+            
+        
+
+        marker_cbdc4ee2f340303e6e3b864be7a4335e.bindPopup(popup_adaa046d5f1ee933c97cdda55fc5ea91)
+        ;
+
+        
+    
+    
+            var marker_e91d41c4ec259d997b02d29bd8414ac2 = L.marker(
+                [50.280095, 27.508177],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_13dbd1713304f1ed850962eb6502f76f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e91d41c4ec259d997b02d29bd8414ac2.setIcon(icon_13dbd1713304f1ed850962eb6502f76f);
+        
+    
+        var popup_68ace4c058fa9fc6934186d29919bab2 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_6a8181dae9ae2892bb35230cef8302f1 = $(`<div id="html_6a8181dae9ae2892bb35230cef8302f1" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-02-06 00:00:00<br><b>Час:</b> 14:46:00<br><b>День тижня:</b> неділя</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_68ace4c058fa9fc6934186d29919bab2.setContent(html_6a8181dae9ae2892bb35230cef8302f1);
+            
+        
+
+        marker_e91d41c4ec259d997b02d29bd8414ac2.bindPopup(popup_68ace4c058fa9fc6934186d29919bab2)
+        ;
+
+        
+    
+    
+            var marker_90cb50f44288b5b11caeaa924995b14e = L.marker(
+                [50.293615, 27.666576],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_6f8792b81e4f0e950e3110a80fb07a28 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_90cb50f44288b5b11caeaa924995b14e.setIcon(icon_6f8792b81e4f0e950e3110a80fb07a28);
+        
+    
+        var popup_a451f79c7467508060d4edd75fedecfe = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_9f17456e465887897fdef8c86e9075ef = $(`<div id="html_9f17456e465887897fdef8c86e9075ef" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення безпечного інтервалу<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-02-15 00:00:00<br><b>Час:</b> 18:09:00<br><b>День тижня:</b> вівторок </div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_a451f79c7467508060d4edd75fedecfe.setContent(html_9f17456e465887897fdef8c86e9075ef);
+            
+        
+
+        marker_90cb50f44288b5b11caeaa924995b14e.bindPopup(popup_a451f79c7467508060d4edd75fedecfe)
+        ;
+
+        
+    
+    
+            var marker_e7916a33b192c3d8a6b4bd048cbf9d0a = L.marker(
+                [50.283101, 27.65861],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_1be5aaded4021f05588fac673a50aa0b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e7916a33b192c3d8a6b4bd048cbf9d0a.setIcon(icon_1be5aaded4021f05588fac673a50aa0b);
+        
+    
+        var popup_7b6d8d0af850821ac5265ce6fe82865f = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_aa742c5a0074ef91737132304815288c = $(`<div id="html_aa742c5a0074ef91737132304815288c" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення правил проїзду перехресть<br><b>Вид ДТП:</b> наїзд на пішохода<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2022-02-23 00:00:00<br><b>Час:</b> 14:57:00<br><b>День тижня:</b> середа</div><br><img src='https://sykhiv.media/wp-content/uploads/2020/07/135_1.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_7b6d8d0af850821ac5265ce6fe82865f.setContent(html_aa742c5a0074ef91737132304815288c);
+            
+        
+
+        marker_e7916a33b192c3d8a6b4bd048cbf9d0a.bindPopup(popup_7b6d8d0af850821ac5265ce6fe82865f)
+        ;
+
+        
+    
+    
+            var marker_fd3b2fa3cd60c3eec3d5afe9fc7ff3a9 = L.marker(
+                [50.293615, 27.666576],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_e9a0da67ac9ce1d6d9e3ed1c12b6b182 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_fd3b2fa3cd60c3eec3d5afe9fc7ff3a9.setIcon(icon_e9a0da67ac9ce1d6d9e3ed1c12b6b182);
+        
+    
+        var popup_c8ec136fb43cd3ebb054217432b5af80 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_fb207db3fe4609ec13af8787e9bed3ca = $(`<div id="html_fb207db3fe4609ec13af8787e9bed3ca" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення безпечного інтервалу<br><b>Вид ДТП:</b> наїзд на ТЗ, що стоїть<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2023-01-05 00:00:00<br><b>Час:</b> 12:28:00<br><b>День тижня:</b> четвер</div><br><img src='https://sykhiv.media/wp-content/uploads/2020/07/135_1.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_c8ec136fb43cd3ebb054217432b5af80.setContent(html_fb207db3fe4609ec13af8787e9bed3ca);
+            
+        
+
+        marker_fd3b2fa3cd60c3eec3d5afe9fc7ff3a9.bindPopup(popup_c8ec136fb43cd3ebb054217432b5af80)
+        ;
+
+        
+    
+    
+            var marker_ba9f8fe29aaf65e65dd27db01ba79a96 = L.marker(
+                [50.200431, 27.631953],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_6f968fc9341ca8f2394b9c8e9421a446 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ba9f8fe29aaf65e65dd27db01ba79a96.setIcon(icon_6f968fc9341ca8f2394b9c8e9421a446);
+        
+    
+        var popup_ac4954fc55dc763645a23db992870406 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_049ca1c2dbecd1b8e32f9d3c8ee22c13 = $(`<div id="html_049ca1c2dbecd1b8e32f9d3c8ee22c13" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2023-01-12 00:00:00<br><b>Час:</b> 11:18:00<br><b>День тижня:</b> четвер</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_ac4954fc55dc763645a23db992870406.setContent(html_049ca1c2dbecd1b8e32f9d3c8ee22c13);
+            
+        
+
+        marker_ba9f8fe29aaf65e65dd27db01ba79a96.bindPopup(popup_ac4954fc55dc763645a23db992870406)
+        ;
+
+        
+    
+    
+            var marker_2ac1ce4c91ca93495037539d09f1dc42 = L.marker(
+                [50.283101, 27.65861],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_ddae1c7d3c6981f54b32e9ee68c46750 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_2ac1ce4c91ca93495037539d09f1dc42.setIcon(icon_ddae1c7d3c6981f54b32e9ee68c46750);
+        
+    
+        var popup_b574fff7bc9e3ae02a28f2b45d090f07 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_7fe17b4cd34cd75cf2f017691d5c74b0 = $(`<div id="html_7fe17b4cd34cd75cf2f017691d5c74b0" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення правил проїзду перехресть<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2022-01-24 00:00:00<br><b>Час:</b> 09:19:00<br><b>День тижня:</b> вівторок </div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_b574fff7bc9e3ae02a28f2b45d090f07.setContent(html_7fe17b4cd34cd75cf2f017691d5c74b0);
+            
+        
+
+        marker_2ac1ce4c91ca93495037539d09f1dc42.bindPopup(popup_b574fff7bc9e3ae02a28f2b45d090f07)
+        ;
+
+        
+    
+    
+            var marker_25eb8f381f22669e7ca8fb2791369dae = L.marker(
+                [50.278802, 27.581951],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_f9c704643f216f1e4aeeb30c8e218a6d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_25eb8f381f22669e7ca8fb2791369dae.setIcon(icon_f9c704643f216f1e4aeeb30c8e218a6d);
+        
+    
+        var popup_765018b27924f0f82da0316a44a69c00 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_7e2ec4ac780d2ac9b58badc57bf68695 = $(`<div id="html_7e2ec4ac780d2ac9b58badc57bf68695" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на пішохода<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2023-02-12 00:00:00<br><b>Час:</b> 14:23:00<br><b>День тижня:</b> неділя</div><br><img src='https://sykhiv.media/wp-content/uploads/2020/07/135_1.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_765018b27924f0f82da0316a44a69c00.setContent(html_7e2ec4ac780d2ac9b58badc57bf68695);
+            
+        
+
+        marker_25eb8f381f22669e7ca8fb2791369dae.bindPopup(popup_765018b27924f0f82da0316a44a69c00)
+        ;
+
+        
+    
+    
+            var marker_25d261c851afd0d912174a4dfa6ddb41 = L.marker(
+                [50.283101, 27.65861],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_9d138c8e13614806fd5666f7274cab40 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_25d261c851afd0d912174a4dfa6ddb41.setIcon(icon_9d138c8e13614806fd5666f7274cab40);
+        
+    
+        var popup_86cda3de2f889b44dd0dc890104e1a5a = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_789d84b3b33dde920f2b3e483d6964fc = $(`<div id="html_789d84b3b33dde920f2b3e483d6964fc" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> перевищення встановленої швидкості<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2023-02-14 00:00:00<br><b>Час:</b> 10:39:00<br><b>День тижня:</b> вівторок </div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_86cda3de2f889b44dd0dc890104e1a5a.setContent(html_789d84b3b33dde920f2b3e483d6964fc);
+            
+        
+
+        marker_25d261c851afd0d912174a4dfa6ddb41.bindPopup(popup_86cda3de2f889b44dd0dc890104e1a5a)
+        ;
+
+        
+    
+    
+            var marker_a4fb033dca01327a488748fad52ca9be = L.marker(
+                [50.369455, 27.993222],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_5e74708c1e0983d186ba195dde3fdbc9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_a4fb033dca01327a488748fad52ca9be.setIcon(icon_5e74708c1e0983d186ba195dde3fdbc9);
+        
+    
+        var popup_b08b17bb780d3ae128395d6fe6cc051f = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_42ab564eee50e8e8572333d93af4ae13 = $(`<div id="html_42ab564eee50e8e8572333d93af4ae13" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення безпечного інтервалу<br><b>Вид ДТП:</b> наїзд на перешкоду<br><b>Потерпілі:</b> 1<br><b>Дата:</b> 2023-02-26 00:00:00<br><b>Час:</b> 12:37:00<br><b>День тижня:</b> неділя</div><br><img src='https://kafedra.com.ua/wp-content/uploads/2508956.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_b08b17bb780d3ae128395d6fe6cc051f.setContent(html_42ab564eee50e8e8572333d93af4ae13);
+            
+        
+
+        marker_a4fb033dca01327a488748fad52ca9be.bindPopup(popup_b08b17bb780d3ae128395d6fe6cc051f)
+        ;
+
+        
+    
+    
+            var marker_ec5bdf7712cbb1e33dd8e1b4363d8de9 = L.marker(
+                [50.294243, 27.68727],
+                {}
+            ).addTo(marker_cluster_b2e8c9d8c323c2b4e372e00303a242c2);
+        
+    
+            var icon_96943e1b5453a20171edc1e8eb9477bb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "iconFontSize": 14, "iconSize": [40, 40], "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ec5bdf7712cbb1e33dd8e1b4363d8de9.setIcon(icon_96943e1b5453a20171edc1e8eb9477bb);
+        
+    
+        var popup_fbfec4b1cdf09b2d2780380f457bc8d2 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_914af30d276f9aa87e0250233348d02d = $(`<div id="html_914af30d276f9aa87e0250233348d02d" style="width: 100.0%; height: 100.0%;"><div style='font-weight: bold;'><b>Причина ДТП:</b> порушення правил проїзду перехресть<br><b>Вид ДТП:</b> зіткнення<br><b>Потерпілі:</b> 0<br><b>Дата:</b> 2023-02-09 00:00:00<br><b>Час:</b> 13:45:00<br><b>День тижня:</b> четвер</div><br><img src='https://avtoblog.in.ua/wp-content/uploads/2016/01/Yak-unyknuty-lobovoho-zitknennia-z-avtomobilem-730x259.jpg' alt='Photo' width='200'></div>`)[0];
+                popup_fbfec4b1cdf09b2d2780380f457bc8d2.setContent(html_914af30d276f9aa87e0250233348d02d);
+            
+        
+
+        marker_ec5bdf7712cbb1e33dd8e1b4363d8de9.bindPopup(popup_fbfec4b1cdf09b2d2780380f457bc8d2)
+        ;
+
+        
+    
+    
+            var options = {
+              position: "topleft",
+              draw: {},
+              edit: {},
+            }
+            // FeatureGroup is to store editable layers.
+            var drawnItems = new L.featureGroup().addTo(
+                map_2501406ecedcb789d9d49ca759cd0aed
+            );
+            options.edit.featureGroup = drawnItems;
+            var draw_control_32b45685f1d4cc3ac919109f47375ca8 = new L.Control.Draw(
+                options
+            ).addTo( map_2501406ecedcb789d9d49ca759cd0aed );
+            map_2501406ecedcb789d9d49ca759cd0aed.on(L.Draw.Event.CREATED, function(e) {
+                var layer = e.layer,
+                    type = e.layerType;
+                var coords = JSON.stringify(layer.toGeoJSON());
+                layer.on('click', function() {
+                    alert(coords);
+                    console.log(coords);
+                });
+                drawnItems.addLayer(layer);
+             });
+            map_2501406ecedcb789d9d49ca759cd0aed.on('draw:created', function(e) {
+                drawnItems.addLayer(e.layer);
+            });
+            
+            document.getElementById('export').onclick = function(e) {
+                var data = drawnItems.toGeoJSON();
+                var convertedData = 'text/json;charset=utf-8,'
+                    + encodeURIComponent(JSON.stringify(data));
+                document.getElementById('export').setAttribute(
+                    'href', 'data:' + convertedData
+                );
+                document.getElementById('export').setAttribute(
+                    'download', "data.geojson"
+                );
+            }
+            
+        
+</script>
+</html>
